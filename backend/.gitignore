@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+npm-debug.log*
+
+# Imágenes subidas por el admin (se generan en runtime, no van al repo)
+uploads/equipos/*
+!uploads/equipos/.gitkeep
+
+**/package-lock.json
