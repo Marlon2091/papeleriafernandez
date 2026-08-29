@@ -7,6 +7,7 @@ import {
   LayoutDashboard,
   LogOut,
   Package,
+  Ruler,
   Tags,
   Truck,
   Users,
@@ -18,6 +19,7 @@ import { useNavItems } from '../hooks/useNavItems';
 const ICONS = {
   LayoutDashboard,
   Package,
+  Ruler,
   Tags,
   Truck,
   Wrench,

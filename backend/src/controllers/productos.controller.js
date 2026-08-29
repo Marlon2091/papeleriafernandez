@@ -62,4 +62,13 @@ async function activate(req, res, next) {
   }
 }
 
-module.exports = { list, bajoStockMinimo, getById, create, update, deactivate, activate };
+async function remove(req, res, next) {
+  try {
+    await service.eliminarProducto(req.params.id);
+    res.json({ ok: true, message: 'Producto eliminado' });
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { list, bajoStockMinimo, getById, create, update, deactivate, activate, remove };

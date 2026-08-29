@@ -107,11 +107,28 @@ async function cambiarEstadoProducto(id, activo) {
   if (!ok) throw new AppError('Producto no encontrado', 404);
 }
 
+async function eliminarProducto(id) {
+  await getProductoById(id);
+
+  try {
+    await productosModel.remove(id);
+  } catch (error) {
+    if (error.code === 'ER_ROW_IS_REFERENCED_2' || error.code === 'ER_ROW_IS_REFERENCED') {
+      throw new AppError(
+        'No se puede eliminar: el producto tiene movimientos de inventario registrados. Desactívalo en su lugar.',
+        409
+      );
+    }
+    throw error;
+  }
+}
+
 module.exports = {
   listProductos,
   productosBajoStockMinimo,
   getProductoById,
   crearProducto,
   actualizarProducto,
-  cambiarEstadoProducto
+  cambiarEstadoProducto,
+  eliminarProducto
 };

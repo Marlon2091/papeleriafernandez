@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import ProductosPage from './pages/ProductosPage';
 import CategoriasPage from './pages/CategoriasPage';
+import UnidadesPage from './pages/UnidadesPage';
 import ProveedoresPage from './pages/ProveedoresPage';
 import ServiciosPage from './pages/ServiciosPage';
 import MovimientosPage from './pages/MovimientosPage';
@@ -27,6 +28,7 @@ export default function App() {
               <Route path="/" element={<DashboardPage />} />
               <Route path="/productos" element={<ProductosPage />} />
               <Route path="/categorias" element={<CategoriasPage />} />
+              <Route path="/unidades" element={<UnidadesPage />} />
               <Route path="/proveedores" element={<ProveedoresPage />} />
               <Route path="/servicios" element={<ServiciosPage />} />
               <Route path="/movimientos" element={<MovimientosPage />} />

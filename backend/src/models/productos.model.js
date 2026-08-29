@@ -109,6 +109,11 @@ async function replaceProveedores(conn, id_producto, proveedores) {
   }
 }
 
+async function remove(id) {
+  const [result] = await pool.execute('DELETE FROM productos WHERE id_producto = ?', [id]);
+  return result.affectedRows > 0;
+}
+
 async function setActivo(id, activo) {
   const [result] = await pool.execute(
     'UPDATE productos SET activo = ? WHERE id_producto = ?',
@@ -149,6 +154,7 @@ module.exports = {
   insert,
   update,
   replaceProveedores,
+  remove,
   setActivo,
   categoriaExists,
   unidadExists,
